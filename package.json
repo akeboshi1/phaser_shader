@@ -1,10 +1,11 @@
 {
   "name": "tooqing-plugin-template-typescript",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/index.min.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "webpack": "webpack"
   },
   "devDependencies": {
     "phaser": "^3.22.0",
@@ -12,5 +13,6 @@
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
-  }
+  },
+  "dependencies": {}
 }
