@@ -5,9 +5,9 @@ module.exports = {
   output: {
     filename: "index.min.js",
     path: path.join(__dirname, "dist"),
-    libraryTarget: "commonjs"
+    libraryTarget: "umd",
   },
-  mode: "production",
+  mode: "development",
   resolve: {
     extensions: [".ts", ".js"]
   },

@@ -1,28 +1,24 @@
 import { BagMediator } from "./ui/Bag/BagMediator";
-import { WorldService, IRoomService } from "game-core";
-import { FramesDisplay } from "game-core/rooms/display/frames.display";
+import { WorldService, IRoomService, BasicPlugin } from "game-core";
+
 
 class Template {
-  private world: WorldService;
   private room: IRoomService;
   constructor() {
   }
 
-  init(worldService) {
-    this.world = worldService;
+  init(worldService: WorldService) {
+    // this.mWorld = worldService;
     const bagMediator = new BagMediator(worldService);
-  }
+    const plugins = new BasicPlugin();
+    plugins.init(worldService);
+    // const plugin = new RoomManager(worldService);
+    // plugin.init(worldService);
 
-  preupdate() {
-
-  }
-
-  update() {
-
-  }
-
-  postupdate() {
+    const uiLayer = worldService.uiManager.getUILayerManager();
+    const scene = uiLayer.scene;
+    scene.add.graphics().fillStyle(0xFF9900, 0.6).fillRect(0, 0, scene.cameras.main.width, scene.cameras.main.height);
+    
   }
 }
-
-export { Template }
+export { Template };
