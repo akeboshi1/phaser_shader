@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "commonjs",
+    "module": "esnext",
+    "moduleResolution": "node",
     "typeRoots": [
       "node_modules/@types"
     ],
-    "outDir": "dist"
+    "outDir": "dist",
+    "removeComments": true
   },
   "exclude": ["node_modules"]
 }
