@@ -1,5 +1,5 @@
 import { BagMediator } from "./ui/Bag/BagMediator";
-import { World, BasicPlugin, WorldService } from "tooqingcore";
+import { World, BasicPlugin, WorldService } from "game-core";
 
 class Template {
   constructor() {
@@ -26,7 +26,7 @@ class Template {
 
     const uiLayer = world.uiManager.getUILayerManager();
     const scene = uiLayer.scene;
-    scene.add.graphics().fillStyle(0xFF9900, 0.6).fillRect(0, 0, scene.cameras.main.width, scene.cameras.main.height);
+    scene.add.graphics().fillStyle(0xff9900, 0.3).fillRect(0, 0, scene.cameras.main.width, scene.cameras.main.height);
     
   }
 }

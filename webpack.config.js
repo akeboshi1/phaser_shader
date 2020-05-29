@@ -14,7 +14,7 @@ module.exports = {
     extensions: [".ts", ".js"]
   },
   externals: [
-    "tooqingcore",
+    "game-core",
   ],
   // externals: [nodeExternals()],
   plugins: [
