@@ -1,36 +1,30 @@
-import { BagMediator } from "./ui/Bag/BagMediator";
-import { World, BasicPlugin, WorldService } from "game-core";
-
-class Template {
-  constructor() {
-    const plugin =  new BasicPlugin();
-    console.log(plugin);
+import "Phaser";
+import { OutlinePipeline } from "./outlinepipeline";
+var config = {
+  type: Phaser.AUTO,
+  parent: 'phaser-example',
+  width: 800,
+  height: 600,
+  scene: {
+    preload: preload,
+    create: create
   }
+};
 
-  init(world: WorldService) {
-    // this.mWorld = worldService;
-    const bagMediator = new BagMediator();
-    // console.log(sha1.sync("laksdjalsjkd"));
+var game = new Phaser.Game(config);
 
-    // const roomManager = new RoomManager(worldService);
-    // console.log(roomManager);
-    // const plugins = new BasicPlugin();
-    // plugins.init(worldService);
-    // const plugin = new RoomManager(worldService);
-    // plugin.init(worldService);
-
-    // const world = new World();
-    // console.log("====>>", world.getName());
-
-    console.log("worldService: ", world);
-
-    const uiLayer = world.uiManager.getUILayerManager();
-    const scene = uiLayer.scene;
-    scene.add.graphics().fillStyle(0xff9900, 0.3).fillRect(0, 0, scene.cameras.main.width, scene.cameras.main.height);
-    
-  }
+function preload() {
+  this.load.image('face', '../res/wood.png');
 }
 
-export function start() {
-  return new Template();
+function create() {
+  var image: Phaser.GameObjects.Image = this.add.image(400, 300, 'face');
+  const pipeline = new OutlinePipeline(this.game);
+  pipeline.setFloat1("gray", 1.0);
+  this.game.renderer.addPipeline(OutlinePipeline.KEY, pipeline);
+  image.setPipeline(OutlinePipeline.KEY);
+  this.input.on('pointerdown', function (pointer) {
+    image.resetPipeline();
+  });
+
 }

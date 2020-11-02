@@ -13,18 +13,29 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".js"]
   },
-  externals: [
-    "game-core",
-  ],
+  // externals: [
+  //   "game-core",
+  // ],
   // externals: [nodeExternals()],
   plugins: [
     // new BundleAnalyzerPlugin({
     //   openAnalyzer: true
     // })
   ],
+  devServer: {
+    writeToDisk: true,
+    watchOptions: {
+      poll: 1000,
+    },
+    contentBase: path.resolve(__dirname, "./dist"),
+    publicPath: "/dist",
+    host: "0.0.0.0",
+    port: 8082,
+    open: false,
+  },
   module: {
     rules: [
-      { 
+      {
         test: /\.tsx?$/, loader: "ts-loader",
       },
       {

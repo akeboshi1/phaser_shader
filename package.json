@@ -4,9 +4,11 @@
   "main": "./dist/index.min.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack-dev-server --mode development"
   },
   "devDependencies": {
+    "copy-text-to-clipboard": "^2.2.0",
+    "game-core": "git+ssh://git@code.apowo.com:PixelPai/game-core.git#modular",
     "phaser": "^3.22.0",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
@@ -16,6 +18,7 @@
   },
   "dependencies": {
     "chance": "^1.1.6",
-    "simple-sha1": "^3.0.1"
+    "simple-sha1": "^3.0.1",
+    "webpack-dev-server": "^3.7.2"
   }
 }
