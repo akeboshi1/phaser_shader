@@ -1,5 +1,5 @@
 {
-  "name": "tooqing-plugin-template-typescript",
+  "name": "phaser-shader",
   "version": "1.0.0",
   "main": "./dist/index.min.js",
   "license": "MIT",
