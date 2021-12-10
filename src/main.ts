@@ -1,30 +1,16 @@
-import "Phaser";
-import { OutlinePipeline } from "./outlinepipeline";
+import "phaser3";
+import { GrayScene } from "./graypipeline/grayScene";
+import { OutlineScene } from "./outlinepipeline/outlineScene";
 var config = {
   type: Phaser.AUTO,
   parent: 'phaser-example',
   width: 800,
   height: 600,
-  scene: {
-    preload: preload,
-    create: create
-  }
+  backgroundColor: '#4488aa',
+
 };
 
 var game = new Phaser.Game(config);
+// 切换不同的scene演示不同的ui组件 
+game.scene.add("uiScene", GrayScene, true, { x: 0, y: 0 });
 
-function preload() {
-  this.load.image('face', '../res/wood.png');
-}
-
-function create() {
-  var image: Phaser.GameObjects.Image = this.add.image(400, 300, 'face');
-  const pipeline = new OutlinePipeline(this.game);
-  pipeline.setFloat1("gray", 1.0);
-  this.game.renderer.addPipeline(OutlinePipeline.KEY, pipeline);
-  image.setPipeline(OutlinePipeline.KEY);
-  this.input.on('pointerdown', function (pointer) {
-    image.resetPipeline();
-  });
-
-}
