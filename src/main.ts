@@ -1,4 +1,5 @@
 import "phaser3";
+import { GlowFilterScene } from "./glowfilterpostfxpipeline/glowfilterScene";
 import { GrayScene } from "./graypipeline/grayScene";
 import { OutlineScene } from "./outlinepipeline/outlineScene";
 var config = {
@@ -12,5 +13,5 @@ var config = {
 
 var game = new Phaser.Game(config);
 // 切换不同的scene演示不同的ui组件 
-game.scene.add("uiScene", GrayScene, true, { x: 0, y: 0 });
+game.scene.add("uiScene", GlowFilterScene, true, { x: 0, y: 0 });
 
